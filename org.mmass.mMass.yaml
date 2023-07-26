@@ -12,8 +12,6 @@ finish-args:
 
 modules:
   - shared-modules/python2.7/python-2.7.json
-  - shared-modules/glu/glu-9.json
-  - shared-modules/SDL/sdl12-compat.json
 
   - name: wxWidgets
     buildsystem: autotools
@@ -28,9 +26,7 @@ modules:
       - --enable-unicode
       - --with-gtk=3
       - --with-python=/app/bin/python
-      - --with-opengl
       - --with-gnomeprint
-      - --with-sdl
     sources:
       - type: archive
         url: https://downloads.sourceforge.net/wxpython/wxPython-src-3.0.2.0.tar.bz2
@@ -47,6 +43,7 @@ modules:
         cd wxPython; /app/bin/python setup.py
         WXPORT=gtk3
         UNICODE=1
+        BUILD_GLCANVAS=0
         EP_ADD_OPTS=1
         EP_FULL_VER=0
         NO_SCRIPTS=1
@@ -58,6 +55,7 @@ modules:
         cd wxPython; /app/bin/python setup.py
         WXPORT=gtk3
         UNICODE=1
+        BUILD_GLCANVAS=0
         EP_ADD_OPTS=1
         EP_FULL_VER=0
         NO_SCRIPTS=1
