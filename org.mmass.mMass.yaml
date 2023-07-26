@@ -12,9 +12,22 @@ finish-args:
 
 modules:
   - shared-modules/python2.7/python-2.7.json
+  - shared-modules/gtk2/gtk2.json
+  - shared-modules/gtk2/gtk2-common-themes.json
 
   - name: wxWidgets
-    buildsystem: autotools
+    buildsystem: simple
+    build-options:
+      cflags: -Wno-narrowing
+      cxxflags: -Wno-narrowing
+    build-commands:
+      - ./configure
+      - make
+      - make -C contrib/src/gizmos
+      - make -C contrib/src/stc
+      - make prefix=${FLATPAK_DEST} install
+      - make -C contrib/src/gizmos prefix=${FLATPAK_DEST} install
+      - make -C contrib/src/stc prefix=${FLATPAK_DEST} install
     config-opts:
       - --disable-monolithic
       - --disable-rpath
@@ -24,13 +37,13 @@ modules:
       - --enable-sound
       - --enable-display
       - --enable-unicode
-      - --with-gtk=3
+      - --with-gtk=2
       - --with-python=/app/bin/python
       - --with-gnomeprint
     sources:
       - type: archive
-        url: https://downloads.sourceforge.net/wxpython/wxPython-src-3.0.2.0.tar.bz2
-        sha256: d54129e5fbea4fb8091c87b2980760b72c22a386cb3b9dd2eebc928ef5e8df61
+        url: https://downloads.sourceforge.net/wxpython/wxPython/2.8.12.1/wxwidgets2.8_2.8.12.1.orig.tar.gz
+        sha256: 2ce05acafd2867156a617c911ed9fc4797ac9e818e2c70de4e9080bb38694c0a
       - type: shell
         commands:
           - cp /usr/share/gnu-config/config.sub .
@@ -41,33 +54,33 @@ modules:
     build-commands:
       - >-
         cd wxPython; /app/bin/python setup.py
-        WXPORT=gtk3
+        WXPORT=gtk2
         UNICODE=1
         BUILD_GLCANVAS=0
         EP_ADD_OPTS=1
         EP_FULL_VER=0
         NO_SCRIPTS=1
         WX_CONFIG="/app/bin/wx-config --prefix=/app --no_rpath"
-        SYS_WX_CONFIG="wx-config --version=3.0.2.0 --toolkit=gtk3 --static=no"
+        SYS_WX_CONFIG="wx-config --version=2.8.12.1 --toolkit=gtk2 --static=no"
         build_ext --rpath=/app/lib
         build
       - >-
         cd wxPython; /app/bin/python setup.py
-        WXPORT=gtk3
+        WXPORT=gtk2
         UNICODE=1
         BUILD_GLCANVAS=0
         EP_ADD_OPTS=1
         EP_FULL_VER=0
         NO_SCRIPTS=1
         WX_CONFIG="/app/bin/wx-config --prefix=/app --no_rpath"
-        SYS_WX_CONFIG="wx-config --version=3.0.2.0 --toolkit=gtk3 --static=no --unicode"
+        SYS_WX_CONFIG="wx-config --version=2.8.12.1 --toolkit=gtk2 --static=no --unicode"
         build_ext --rpath=/app/lib
         install
         --root=/
     sources:
       - type: archive
-        url: https://downloads.sourceforge.net/wxpython/wxPython-src-3.0.2.0.tar.bz2
-        sha256: d54129e5fbea4fb8091c87b2980760b72c22a386cb3b9dd2eebc928ef5e8df61
+        url: https://downloads.sourceforge.net/wxpython/wxPython/2.8.12.1/wxwidgets2.8_2.8.12.1.orig.tar.gz
+        sha256: 2ce05acafd2867156a617c911ed9fc4797ac9e818e2c70de4e9080bb38694c0a
 
   - name: numpy
     buildsystem: simple
