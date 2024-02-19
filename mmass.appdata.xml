@@ -14,22 +14,22 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <image type="source">http://www.mmass.org/images/features/navigation.png</image>
+      <image type="source">https://dl.flathub.org/repo/screenshots/org.mmass.mMass-stable/752x423/org.mmass.mMass-113de1d2d215132218ade76bfff1c251.png</image>
     </screenshot>
     <screenshot>
-      <image type="source">http://www.mmass.org/images/features/gelview.png</image>
+      <image type="source">https://dl.flathub.org/repo/screenshots/org.mmass.mMass-stable/752x423/org.mmass.mMass-caccd3dd6140e202aae00fd74732a34c.png</image>
     </screenshot>
     <screenshot>
-      <image type="source">http://www.mmass.org/images/features/normalview.png</image>
+      <image type="source">https://dl.flathub.org/repo/screenshots/org.mmass.mMass-stable/752x423/org.mmass.mMass-e38d2ccbf9cc47b17ef48253f2b6e7eb.png</image>
     </screenshot>
     <screenshot>
-      <image type="source">http://www.mmass.org/images/features/flipview.png</image>
+      <image type="source">https://dl.flathub.org/repo/screenshots/org.mmass.mMass-stable/752x423/org.mmass.mMass-d401dabd286df8b79c97ee53911a2612.png</image>
     </screenshot>
     <screenshot>
-      <image type="source">http://www.mmass.org/images/features/ruler.png</image>
+      <image type="source">https://dl.flathub.org/repo/screenshots/org.mmass.mMass-stable/752x423/org.mmass.mMass-67a42c064ce7480e9893f7fb017bc358.png</image>
     </screenshot>
     <screenshot>
-      <image type="source">http://www.mmass.org/images/features/labelpeak.png</image>
+      <image type="source">https://dl.flathub.org/repo/screenshots/org.mmass.mMass-stable/752x423/org.mmass.mMass-dcbe97207b9ffe6411919eaca46d6138.png</image>
     </screenshot>
   </screenshots>
   <releases>
