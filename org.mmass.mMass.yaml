@@ -96,8 +96,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/84/fb/5e9dfeeb5d8909d659e6892c97c9aa66d3798fad50e1d3d66b3c614a9c35/numpy-1.7.1.tar.gz
-        sha256: 5525019a3085c3d860e6cfe4c0a30fb65d567626aafc50cf1252a641a418084a
+        url: https://files.pythonhosted.org/packages/73/e1/88932bb0420a0fbe1547ee96d4e7332de5c1ed5a846a6c96ea422c6bf753/numpy-1.5.1.tar.gz
+        sha256: c36789ec381fec09f519249744ea36a77e5534b69446a59ee73b06cac29542eb
 
   - name: mmass
     buildsystem: simple
