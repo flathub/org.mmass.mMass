@@ -1,0 +1,90 @@
+Index: mMass/configs/config.xml
+===================================================================
+--- mMass.orig/configs/config.xml
++++ mMass/configs/config.xml
+@@ -22,9 +22,9 @@
+     <param name="lastSeqDir" value="" type="unicode" />
+     <param name="errorUnits" value="Da" type="str" />
+     <param name="printQuality" value="5" type="int" />
+-    <param name="useServer" value="1" type="int" />
++    <param name="useServer" value="0" type="int" />
+     <param name="serverPort" value="65456" type="int" />
+-    <param name="updatesEnabled" value="1" type="int" />
++    <param name="updatesEnabled" value="0" type="int" />
+     <param name="updatesChecked" value="" type="str" />
+     <param name="updatesCurrent" value="" type="str" />
+     <param name="updatesAvailable" value="" type="str" />
+@@ -467,4 +467,4 @@
+     <link name="pdb" value="http://www.rcsb.org/pdb/" />
+   </links>
+ 
+-</mMassConfig>
+\ No newline at end of file
++</mMassConfig>
+Index: mMass/gui/config.py
+===================================================================
+--- mMass.orig/gui/config.py
++++ mMass/gui/config.py
+@@ -98,13 +98,13 @@ main={
+     'lastSeqDir': '',
+     'errorUnits': 'Da',
+     'printQuality': 5,
+-    'useServer': 1,
++    'useServer': 0,
+     'serverPort': 65456,
+     'reverseScrolling': 0,
+     'macListCtrlGeneric': 1,
+     'peaklistColumns': ['mz', 'int', 'rel', 'sn', 'z', 'fwhm', 'resol'],
+     'cursorInfo': ['mz', 'dist', 'ppm', 'z'],
+-    'updatesEnabled': 1,
++    'updatesEnabled': 0,
+     'updatesChecked': '',
+     'updatesCurrent': version,
+     'updatesAvailable': version,
+Index: mMass/mmass.py
+===================================================================
+--- mMass.orig/mmass.py
++++ mMass/mmass.py
+@@ -135,40 +135,5 @@ if __name__ == '__main__':
+     
+     server = None
+     
+-    # use server
+-    if config.main['useServer'] and sys.platform != 'darwin':
+-        
+-        # init server params
+-        HOST = socket.gethostname()
+-        PORT = config.main['serverPort']
+-        
+-        # get command
+-        command = ''
+-        if len(sys.argv) > 1:
+-            command = sys.argv[-1]
+-        
+-        # try to connect to existing server
+-        try:
+-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+-            sock.connect((HOST, PORT))
+-            sock.sendall(command)
+-            sock.close()
+-            sys.exit()
+-        
+-        # init new app and server
+-        except socket.error:
+-            
+-            server = TCPServer((HOST, PORT), TCPServerHandler)
+-            server.server_bind()
+-            server.server_activate()
+-            server_thread = threading.Thread(target=server.serve_forever)
+-            server_thread.setDaemon(True)
+-            server_thread.start()
+-            
+-            app = mMass(0)
+-            app.MainLoop()
+-    
+-    # skip server
+-    else:
+-        app = mMass(0)
+-        app.MainLoop()
++    app = mMass(0)
++    app.MainLoop()
