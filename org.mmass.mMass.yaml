@@ -103,7 +103,7 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: http://www.mmass.org/download/files/v5.5.0/mmass_v5.5.0_source.zip
+        url: https://web.archive.org/web/20150803125155/http://www.mmass.org/download/files/v5.5.0/mmass_v5.5.0_source.zip
         sha256: e75e0792b51ed16f5b772f285b1be2031a0906fd35b02294752ccf816258508c
       - type: shell
         commands:
