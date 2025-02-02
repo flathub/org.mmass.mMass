@@ -134,6 +134,7 @@ modules:
       - sed -i -e '1i#!/usr/bin/python' /app/lib/python2.7/mmass/mmass.py
       - find  /app/lib/python2.7/mmass -name "*.py" | xargs sed -i '1s|/usr/bin/python|/app/bin/python|'
       - install -Dm0644 *.xml /app/share/mmass/database
+      - install -m0644 *.pdf /app/lib/python2.7/mmass
       - install -Dm0644 mMass.desktop /app/share/applications/${FLATPAK_ID}.desktop
       - install -Dm0644 mmass.appdata.xml /app/share/metainfo/${FLATPAK_ID}.appdata.xml
       - install -Dm0644 gui/images/gtk/icon_128.png /app/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
