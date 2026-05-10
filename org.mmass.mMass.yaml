@@ -9,6 +9,10 @@ finish-args:
   - --share=ipc
   - --share=network
   - --filesystem=home
+cleanup:
+  - /include
+  - /lib/wx/include
+  - /share/aclocal
 
 modules:
   - shared-modules/python2.7/python-2.7.json
