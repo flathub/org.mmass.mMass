@@ -1,6 +1,6 @@
 id: org.mmass.mMass
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: mmass
 finish-args:
@@ -9,6 +9,10 @@ finish-args:
   - --share=ipc
   - --share=network
   - --filesystem=home
+cleanup:
+  - /include
+  - /lib/wx/include
+  - /share/aclocal
 
 modules:
   - shared-modules/python2.7/python-2.7.json
@@ -46,8 +50,8 @@ modules:
         sha256: 2ce05acafd2867156a617c911ed9fc4797ac9e818e2c70de4e9080bb38694c0a
       - type: shell
         commands:
-          - cp /usr/share/gnu-config/config.sub .
-          - cp /usr/share/gnu-config/config.guess .
+          - cp /usr/share/automake-*/config.sub .
+          - cp /usr/share/automake-*/config.guess .
 
   - name: wxPython
     buildsystem: simple
@@ -103,7 +107,7 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://web.archive.org/web/20150803125155/http://www.mmass.org/download/files/v5.5.0/mmass_v5.5.0_source.zip
+        url: https://github.com/xxao/mMass-Dist/blob/main/v5.5.0/mmass_v5.5.0_source.zip
         sha256: e75e0792b51ed16f5b772f285b1be2031a0906fd35b02294752ccf816258508c
       - type: patch
         path: disable-server.patch
