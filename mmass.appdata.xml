@@ -35,7 +35,7 @@
   <releases>
     <release version="5.5.0" date="2013-07-01" type="stable"/>
   </releases>
-  <url type="homepage">https://github.com/xxao/mMass</url>
+  <url type="homepage">https://web.archive.org/web/20230628055929/http://www.mmass.org/</url>
   <url type="vcs-browser">https://github.com/xxao/mMass</url>
   <content_rating type="oars-1.1"/>
   <launchable type="desktop-id">org.mmass.mMass.desktop</launchable>
