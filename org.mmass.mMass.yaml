@@ -111,6 +111,8 @@ modules:
         sha256: e75e0792b51ed16f5b772f285b1be2031a0906fd35b02294752ccf816258508c
       - type: patch
         path: disable-server.patch
+      - type: patch
+        path: remove-icc-profile.patch
       - type: shell
         commands:
           - sed -i 's/\r$//' license.txt
